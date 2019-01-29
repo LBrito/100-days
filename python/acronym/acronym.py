@@ -1,5 +1,5 @@
+import re
+
+
 def abbreviate(phrase):
-    acronym = ""
-    for words in phrase.replace("_", "").replace("-", " ").split():
-        acronym += words[0].upper()
-    return acronym
+    return "".join(word[:1].upper() for word in re.split(r"[\W-]+", re.sub(r"[_']+", "", phrase)))
