@@ -7,8 +7,4 @@ def slices(series, length):
     elif len(series) < 1:
         raise ValueError("Series cannot be empty!")
 
-    return [
-        series_item for series_item in
-        [series[x:x + length] for x in range(len(series))]
-        if len(series_item) == length
-    ]
+    return [series[x:x + length] for x in range(len(series) - length + 1)]
